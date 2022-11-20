@@ -34,9 +34,9 @@ function onSearch(e) {
           'Sorry, there are no images matching your search query. Please try again.'
         );
       } else {
-        markupGallery(data.hits);
+        markupGallery(data.data.hits);
         lightbox.refresh();
-        Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+        Notiflix.Notify.success(`Hooray! We found ${data.data.totalHits} images.`);
         query = value;
       }
     })
@@ -49,6 +49,7 @@ function onSearch(e) {
 function markupGallery(hits) {
   getEl('.gallery').insertAdjacentHTML('beforeend', makeGallery(hits));
 }
+
 
 function makeGallery() {
   `<div class="photo-card">

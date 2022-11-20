@@ -7,5 +7,6 @@ export async function fetchImg(r, page) {
   const apiData = await axios.get(
     `${BASE_URL}?key=${API_KEY}&q=${r}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`
   )
+  console.log(apiData.data.hits);
   return apiData;
 }
