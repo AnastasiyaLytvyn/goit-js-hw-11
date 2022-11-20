@@ -50,8 +50,8 @@ function onSearch(e) {
     });
 }
 
-function makeGallery() {
-  `<div class="photo-card">
+function makeGallery(hits) {
+  return hits.map(({webformatURL, tags, likes, views, comments, downloads}) => `<div class="photo-card">
   <img src="${webformatURL}" alt="${tags}" loading="lazy" />
   <div class="info">
     <p class="info-item">
@@ -71,7 +71,7 @@ function makeGallery() {
       ${downloads}
     </p>
   </div>
-</div>`;
+</div>`).join('');
 }
 
 function onLoadMore() {
