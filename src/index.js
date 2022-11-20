@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import { fetchImg } from './fetch';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import './styles.css'
 
 let getEl = selector => document.querySelector(selector);
 getEl('.search-form').addEventListener('submit', onSearch);

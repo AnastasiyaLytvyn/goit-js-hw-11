@@ -1,0 +1,23 @@
+body {
+  background-image: linear-gradient(to right, #ffb800, #2975e9);
+}
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+  width: 300px;
+}
+input,
+button {
+  border-radius: 5px;
+  border-color: burlywood;
+}
+.search-form {
+  text-align: center;
+  background-image: linear-gradient(to right, #2975e9, #ffb800);
+
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.load-more {
+}
