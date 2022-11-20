@@ -29,14 +29,18 @@ function onSearch(e) {
   }
   fetchImg(value, page)
     .then(data => {
-      if (data.data.hits.length === 0) {
+      console.log(data.hits);
+      if (data.totalHits === 0) {
         Notiflix.Notify.warning(
           'Sorry, there are no images matching your search query. Please try again.'
         );
       } else {
-        markupGallery(data.data.hits);
+        getEl('.gallery').insertAdjacentHTML(
+          'beforeend',
+          makeGallery(data.hits)
+        );
         lightbox.refresh();
-        Notiflix.Notify.success(`Hooray! We found ${data.data.totalHits} images.`);
+        Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
         query = value;
       }
     })
@@ -45,11 +49,6 @@ function onSearch(e) {
       getEl('.search-form').reset();
     });
 }
-
-function markupGallery(hits) {
-  getEl('.gallery').insertAdjacentHTML('beforeend', makeGallery(hits));
-}
-
 
 function makeGallery() {
   `<div class="photo-card">

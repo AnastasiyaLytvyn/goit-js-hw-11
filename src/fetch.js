@@ -8,5 +8,5 @@ export async function fetchImg(r, page) {
     `${BASE_URL}?key=${API_KEY}&q=${r}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`
   )
   console.log(apiData.data.hits);
-  return apiData;
+  return apiData.data;
 }
