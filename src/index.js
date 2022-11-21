@@ -13,7 +13,7 @@ getEl('.load-more').addEventListener('click', onLoadMore);
 
 let page = 1;
 let query = '';
-let lightbox = new SimpleLightbox('.gallery a');
+let lightbox = new SimpleLightbox('.gallery a',{ captionsData: "alt", captionDelay: 250 });
 
 function onSearch(e) {
   e.preventDefault();
