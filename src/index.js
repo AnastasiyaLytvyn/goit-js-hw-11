@@ -1,10 +1,8 @@
-import axios from 'axios';
 import Notiflix from 'notiflix';
 import { fetchImg } from './fetch';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import './styles.css';
-import simpleLightbox from 'simplelightbox';
 
 let getEl = selector => document.querySelector(selector);
 getEl('.load-more').classList.add('is-hidden');
@@ -13,7 +11,10 @@ getEl('.load-more').addEventListener('click', onLoadMore);
 
 let page = 1;
 let query = '';
-let lightbox = new SimpleLightbox('.gallery a',{ captionsData: "alt", captionDelay: 250 });
+let lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 function onSearch(e) {
   e.preventDefault();
@@ -44,7 +45,7 @@ function onSearch(e) {
           'beforeend',
           makeGallery(data.hits)
         );
-        lightbox.refresh()
+        lightbox.refresh();
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
         query = value;
       }
@@ -61,7 +62,7 @@ function onLoadMore() {
     .then(data => {
       getEl('.gallery').insertAdjacentHTML('beforeend', makeGallery(data.hits));
       console.log(data.hits);
-      lightbox.refresh()
+      lightbox.refresh();
 
       const totalPage = Math.ceil(data.totalHits / data.hits.length);
 
