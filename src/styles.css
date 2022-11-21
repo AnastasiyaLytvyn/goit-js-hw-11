@@ -7,11 +7,17 @@ img {
   height: 230px;
   object-fit: cover;
 }
-input,
 button {
   width: 200px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
+  border-color: burlywood;
+  cursor: pointer;
+}
+input {
+  width: 200px;
+  padding: 10px;
+  border-radius: 15px;
   border-color: burlywood;
 }
 input:focus {
