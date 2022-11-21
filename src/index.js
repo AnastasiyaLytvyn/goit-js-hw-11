@@ -44,7 +44,7 @@ function onSearch(e) {
           'beforeend',
           makeGallery(data.hits)
         );
-        lightbox.refresh();
+        lightbox.refresh()
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
         query = value;
       }
@@ -61,7 +61,7 @@ function onLoadMore() {
     .then(data => {
       getEl('.gallery').insertAdjacentHTML('beforeend', makeGallery(data.hits));
       console.log(data.hits);
-      lightbox.refresh();
+      lightbox.refresh()
 
       const totalPage = Math.ceil(data.totalHits / data.hits.length);
 
@@ -86,7 +86,7 @@ function makeGallery(hits) {
         comments,
         downloads,
       }) => `<div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+  <a href="${webformatURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
   <div class="info">
     <p class="info-item">
       <b>Likes</b>
