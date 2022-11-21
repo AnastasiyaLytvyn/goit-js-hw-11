@@ -6,6 +6,10 @@ img {
   width: 100%;
   height: 230px;
   object-fit: cover;
+  transition: transform 250ms;
+}
+img:hover {
+  transform: scale(1.05);
 }
 button {
   width: 200px;
