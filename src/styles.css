@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to right, #ffb800, #2975e9);
+  background-image: linear-gradient(to right, #e8c367, #6997dc);
 }
 img {
   display: block;
@@ -20,7 +20,7 @@ input:focus {
 }
 .search-form {
   text-align: center;
-  background-image: linear-gradient(to right, #2975e9, #ffb800);
+  background-image: linear-gradient(to right, #4c8bea, #ecc154);
 
   padding: 20px;
   margin-bottom: 20px;
