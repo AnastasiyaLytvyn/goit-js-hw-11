@@ -25,7 +25,7 @@ function onSearch(e) {
 
   getEl('.gallery').innerHTML = '';
 
-  if (value === '') {
+  if (!value) {
     getEl('.load-more').classList.add('is-hidden');
     Notiflix.Notify.failure(
       'The search string cannot be empty. Please specify your search query.'
@@ -35,7 +35,7 @@ function onSearch(e) {
   fetchImg(value, page)
     .then(data => {
       console.log(data.hits);
-      if (data.totalHits === 0) {
+      if (!data.totalHits) {
         getEl('.load-more').classList.add('is-hidden');
         Notiflix.Notify.warning(
           'Sorry, there are no images matching your search query. Please try again.'
