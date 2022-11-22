@@ -36,7 +36,7 @@ function onSearch(e) {
     .then(data => {
       console.log(data.hits);
       if (!data.totalHits) {
-        getEl('.load-more').classList.add('is-hidden');
+        // getEl('.load-more').classList.add('is-hidden');
         Notiflix.Notify.warning(
           'Sorry, there are no images matching your search query. Please try again.'
         );
@@ -50,8 +50,8 @@ function onSearch(e) {
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
         query = value;
       }
-      if(data.totalHits < 40){
-        getEl('.load-more').classList.add('is-hidden')
+      if (data.totalHits < 40) {
+        getEl('.load-more').classList.add('is-hidden');
       }
     })
     .catch(error => console.log(error))
@@ -68,15 +68,12 @@ function onLoadMore() {
       console.log(data.hits);
       lightbox.refresh();
 
-      const totalPage = Math.ceil(data.totalHits / data.hits.length);
-
-      if (page >= totalPage) {
+      if (data.hits <= 40) {
         getEl('.load-more').classList.add('is-hidden');
         Notiflix.Notify.failure(
           "We're sorry, but you've reached the end of search results."
         );
       }
-
     })
     .catch(error => console.log(error));
 }
