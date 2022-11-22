@@ -19,7 +19,7 @@ let lightbox = new SimpleLightbox('.gallery a', {
 function onSearch(e) {
   e.preventDefault();
   page = 1;
-  getEl('.load-more').classList.remove('is-hidden');
+
   const value = e.currentTarget.searchQuery.value;
   console.log(value);
 
@@ -45,9 +45,13 @@ function onSearch(e) {
           'beforeend',
           makeGallery(data.hits)
         );
+        getEl('.load-more').classList.remove('is-hidden');
         lightbox.refresh();
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
         query = value;
+      }
+      if(data.totalHits < 40){
+        getEl('.load-more').classList.add('is-hidden')
       }
     })
     .catch(error => console.log(error))
@@ -72,6 +76,7 @@ function onLoadMore() {
           "We're sorry, but you've reached the end of search results."
         );
       }
+
     })
     .catch(error => console.log(error));
 }
